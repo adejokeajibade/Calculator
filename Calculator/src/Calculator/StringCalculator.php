@@ -6,10 +6,16 @@ use Exception;
 class StringCalculator
 {
 	
-	
+     /**
+     * Add numbers.
+     *
+     * @param  string  $numbers
+     * @return int
+     *@throws Exceptions
+     */
 	public function add(string $numbers) 
 	{
-		//echo $numbers;
+		
 		try {
 			$this->noNegativeNumbers($numbers_filtered = $this->inputString($numbers));
 			
@@ -21,15 +27,20 @@ class StringCalculator
 		}
 		catch(Exception $e) {
 			$message = 'Message: ' .$e->getMessage();
-			echo $message;
-			//header('Location: calculate.php?message='.$message);
-			//exit();
+			header('Location: calculate.php?message='.$message);
+			exit();
 			
 		}
 		
 		
 	}
 	
+     /**
+     * Input String.
+     *
+     * @param  string  $numbers
+     * @return array
+     */
 	public function inputString (string $numbers)
 	{
 		$delimiter = ",";
@@ -56,6 +67,13 @@ class StringCalculator
 
 	}
 	
+    /**
+     * Check for negative numbers.
+     *
+     * @param  array  $numbers
+     * @return array
+     * @Throws Exceptions
+     */
 	public function noNegativeNumbers (array $numbers)
 	{
 		$delimiter = ",";
@@ -65,10 +83,15 @@ class StringCalculator
 		if(!empty($negatives)) {
 			throw new Exception("Negatives Not Allowed: ".implode($delimiter,$negatives));
 			}
-		
-		
+	
 	}
 	
+	/**
+     * Check for numbers greater than 1000.
+     *
+     * @param  array  $numbers
+     * @return array
+     */
 	public function numberGreaterThan1000Ignored(array $numbers)
 	{
 		$numbers_array_range = array_filter($numbers, function($x){

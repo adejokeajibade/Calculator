@@ -6,19 +6,12 @@ use Calculator\StringCalculator;
 
 class StringCalculatorTest extends TestCase
 {
-	/* public function testInputIsString()
-	{
-		$string = "Ja!1";
-
-		$this->assertTrue(!preg_match('~[0-9]+~', $string));
-	} */
-	
-	
+		
 	public function testSumOfNumbers()
 	{
 		$this->calculator = new StringCalculator();
 		$result = $this->calculator->add('1,2,5');
-        $this->assertEquals(8, $result);
+        	$this->assertEquals(8, $result);
 	}
 	
 	public function testNoEmptyString()
@@ -28,31 +21,31 @@ class StringCalculatorTest extends TestCase
 		$this->assertEquals(0,$this->calculator->add(''));
 	}
 	
-	 function testNewLineDelimiter()
-    {
-        $this->calculator = new StringCalculator();
+	function testNewLineDelimiter()
+	 {
+		$this->calculator = new StringCalculator();
 
-        $this->assertEquals(3, $this->calculator->add("1\n,2"));
-    }
+		$this->assertEquals(3, $this->calculator->add("1\n,2"));
+	}
 	
 	function testCustomDelimiters()
-    {
-        $this->calculator = new StringCalculator();
+    	{
+		$this->calculator = new StringCalculator();
 
-        $this->assertEquals(7, $this->calculator->add("//;\n1;4;2"));
-    }
+		$this->assertEquals(7, $this->calculator->add("//;\n1;4;2"));
+    	}
 	
 	function testCustomDelimitersArtibraryLength()
-    {
-        $this->calculator = new StringCalculator();
+    	{
+		$this->calculator = new StringCalculator();
 
-        $this->assertEquals(8, $this->calculator->add("//;;;\n1;;;3;;;4"));
-    }
+		$this->assertEquals(8, $this->calculator->add("//;;;\n1;;;3;;;4"));
+    	}
 	
 	function testNumberGreaterThan1000Ignored()
-    {
-        $this->calculator = new StringCalculator();
+    	{
+		$this->calculator = new StringCalculator();
 
-        $this->assertEquals(23, $this->calculator->add("1,22,1345,2000"));
-    }
+		$this->assertEquals(23, $this->calculator->add("1,22,1345,2000"));
+    	}
 }

@@ -18,10 +18,11 @@ session_start();
 			<h1 style='color:blue;text-align:center'> String Calculator</h1>
 				<div>Type Input Here</div>
 				<?php
-					if (isset($_GET['message'])) {  
+					if (isset($_GET['message'])) 
+					{  
 						echo "<p style='color:red;text-align:center'>{$_GET['message']}</p>";
-                    } 
-					?>
+                    			} 
+				?>
          </nav>
         <form method="POST" action="main.php">
             <input name="numbers" required type="text" value="">

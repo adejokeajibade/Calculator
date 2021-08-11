@@ -53,7 +53,7 @@ class StringCalculator
 		{
 			
 			//Identify New Line
-			$numbers = preg_replace("/\n/", $new_line_identifier, $numbers);
+			$numbers =  str_replace("\\n", $new_line_identifier, $numbers);
 			$end_custom_delimiter = strpos($numbers, $new_line_identifier);
 			$custom_delimiter_string_count = $end_custom_delimiter - 2;
 			$multiple_delimiter = substr($numbers,2,$custom_delimiter_string_count);

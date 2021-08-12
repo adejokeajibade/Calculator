@@ -49,12 +49,5 @@ class StringCalculatorTest extends TestCase
 		$this->assertEquals(23, $this->calculator->add("1,22,1345,2000"));
     	}
 	
-	public function testNoNegativeNumbers()
-	{
-		$this->calculator = new StringCalculator();
-		
-		$this->expectException(\Exception::class);
-
-       		$this->calculator->add('1,-10');
-	}
+	
 }
